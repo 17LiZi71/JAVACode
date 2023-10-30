@@ -49,9 +49,9 @@ public class Vehicletb {
         pstmt = conn.prepareStatement(sql);
         rs = pstmt.executeQuery(sql);
         while (rs.next()) {
-            System.out.println("编号:" + rs.getInt(1) + "  品牌:" + rs.getString(2) + "  种类:" + rs.getString(3) + "  日租金:"
+            System.out.println("*编号:" + rs.getInt(1) + "  品牌:" + rs.getString(2) + "  种类:" + rs.getString(3) + "  日租金:"
                     + rs.getInt(4) + "  型号:" + rs.getString(5) + "  状态:" + rs.getString(6) + "  车牌号:"
-                    + rs.getString(7));
+                    + rs.getString(7)+"*");
         }
         return false;
     }

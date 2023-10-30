@@ -24,7 +24,7 @@ public class View {
 
     public static void view() throws SQLException {
         System.out.println("**********欢迎光临租赁公司**********");
-        System.out.println("按1登录,按2注册,按其他键退出");
+        System.out.println("*按1登录,按2注册,按其他键退出      *");
         int login = sc.nextInt();
         User user = null;
         if (login == Constants.LOG_ON) {
@@ -36,11 +36,12 @@ public class View {
         if (user instanceof DefaultCustomer || user instanceof VipCustomer) {
             int choose = 0;
             ShowVehicles.getShowVehicles().showVehicle();
-            System.out.println("请选择服务：");
-            System.out.println("按1价格升序排列,按2价格降序排列");
-            System.out.println("按3进行租赁,按4进行归还");
-            System.out.println("按5查看订单,按6充值Vip");
-            System.out.println("按7退出系统");
+            System.out.println("*********************************");
+            System.out.println("*请选择服务：                   *");
+            System.out.println("*按1价格升序排列,按2价格降序排列*");
+            System.out.println("*按3进行租赁,按4进行归还        *");
+            System.out.println("*按5查看订单,按6充值Vip         *");
+            System.out.println("*按7退出系统                    *");
             try {
                 while (choose != Constants.EXIT_SYSTEM) {
                     choose = sc.nextInt();

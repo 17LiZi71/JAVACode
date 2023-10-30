@@ -110,13 +110,13 @@ public class Usertb {
             int[] order = decodeOrders(rs.getString(7));
             System.out.print("1.租用");
             Vehicletb.vehicleidShow(order[0]);
-            System.out.print(order[1] + "天\n");
+            System.out.print(" "+order[1] + "天\n");
         }
         if (!rs.getString(8).equals("default")) {
             int[] order = decodeOrders(rs.getString(8));
             System.out.print("2.租用");
             Vehicletb.vehicleidShow(order[0]);
-            System.out.print(order[1] + "天\n");
+            System.out.print(" "+order[1] + "天\n");
         }
     }
 
