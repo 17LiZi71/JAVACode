@@ -18,7 +18,6 @@ import com.rentcal.service.Repaid;
 import com.rentcal.service.ShowVehicles;
 import com.rentcal.service.ViewMiscellaneous;
 import com.rentcal.util.Constants;
-import com.rentcal.util.JDBCUtils;
 
 public class View {
     public static Scanner sc = new Scanner(System.in);
