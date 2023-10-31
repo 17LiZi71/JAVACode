@@ -1,8 +1,8 @@
-package third.vehicle;
+package RentCar.vehicle;
 
 import java.util.Scanner;
 
-import third.RentMgr;
+import RentCar.RentMgr;
 
 public class Trunk extends Vehicle implements LeaseOutFlow,CalRent{
     private int cargoCapacity;

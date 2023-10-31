@@ -1,8 +1,8 @@
-package third.user;
+package RentCar.user;
 
 import java.util.ArrayList;
 
-import third.vehicle.Vehicle;
+import RentCar.vehicle.Vehicle;
 
 public interface Customer {
     void viewCarInformation(ArrayList<Vehicle> list);

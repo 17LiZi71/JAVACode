@@ -1,13 +1,13 @@
-package third.user;
+package RentCar.user;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import third.RentMgr;
-import third.vehicle.Bus;
-import third.vehicle.Car;
-import third.vehicle.Trunk;
-import third.vehicle.Vehicle;
+import RentCar.RentMgr;
+import RentCar.vehicle.Bus;
+import RentCar.vehicle.Car;
+import RentCar.vehicle.Trunk;
+import RentCar.vehicle.Vehicle;
 
 public class DefaultCustomer extends User implements Customer {
     Scanner sc = RentMgr.sc;
@@ -48,7 +48,7 @@ public class DefaultCustomer extends User implements Customer {
         } else if (chose == 2) {
             ArrayList<Vehicle> list1 = ridRepeat1(list, 1, "客车");
             ArrayList<String> strlist = show(list1);
-            System.out.println("\n请选择你要租赁的客车载客量:");
+            System.out.println("\n请选择你要租赁的客车品牌:");
             ArrayList<Vehicle> list2 = ridRepeat1(list1, 2, strlist.get(sc.nextInt() - 1));
             int count = 1;
             for (int i = 0; i < list2.size(); i++) {
@@ -56,7 +56,7 @@ public class DefaultCustomer extends User implements Customer {
                 System.out.print(count + "." + c.getPassengerCapacity() + "座  ");
                 count++;
             }
-            System.out.println("\n请选择你要租赁的轿车型号:");
+            System.out.println("\n请选择你要租赁的客车载客量:");
             Bus c = (Bus) list2.get(sc.nextInt() - 1);
             c.leaseOutFlow();
         } else if (chose == 3) {

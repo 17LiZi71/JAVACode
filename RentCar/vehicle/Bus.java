@@ -1,27 +1,37 @@
-package RentCar.RentCar;
+package RentCar.vehicle;
 
 import java.util.Scanner;
 
-import RentCar.RentMgrSys;
+import RentCar.RentMgr;
 
-public class Trunk extends Vehicle {//继承自Vehicle
-    private int weight;//特有属性：载重量
-    Scanner sc = RentMgrSys.sc;
+public class Bus extends Vehicle implements LeaseOutFlow,CalRent{
+    private int passengerCapacity;
+    Scanner sc = RentMgr.sc;
+    public Bus() {
 
-    public Trunk(String vehicleId, String brand, int perRent, int weight) {
-        super(vehicleId, brand, perRent);
-        this.weight = weight;
     }
 
-    public Trunk() {
+    public Bus(int passengerCapacity) {
+        this.passengerCapacity = passengerCapacity;
     }
 
-    public int getWeight() {
-        return this.weight;
+    public Bus(String vehicleId, String brand, int perRent, int passengerCapacity,String type) {
+        super(vehicleId, brand, perRent,type);
+        this.passengerCapacity = passengerCapacity;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public int getPassengerCapacity() {
+        return passengerCapacity;
+    }
+
+    public void setPassengerCapacity(int passengerCapacity) {
+        this.passengerCapacity = passengerCapacity;
+    }
+
+    @Override
+    public String toString() {
+        return "Bus [VehicleId=" + super.getVehicleId() + ", brand=" + super.getBrand() + ", perRent="
+                + super.getPerRent() + "]";
     }
 
     public void leaseOutFlow() {// 实现租赁
@@ -46,5 +56,4 @@ public class Trunk extends Vehicle {//继承自Vehicle
         }
         return days * super.getPerRent();
     }
-
 }

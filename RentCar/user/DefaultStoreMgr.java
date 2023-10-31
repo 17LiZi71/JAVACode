@@ -1,9 +1,9 @@
-package third.user;
+package RentCar.user;
 
 import java.util.ArrayList;
 
-import third.Factory;
-import third.vehicle.Vehicle;
+import RentCar.Factory;
+import RentCar.vehicle.Vehicle;
 
 public class DefaultStoreMgr extends User implements StoreMgr {
     public DefaultStoreMgr() {
@@ -24,6 +24,7 @@ public class DefaultStoreMgr extends User implements StoreMgr {
                 list.get(i).setPerRent(newPerRent);
             }
         }
+        System.out.println("修改成功");
         return true;
     }
 
@@ -33,6 +34,7 @@ public class DefaultStoreMgr extends User implements StoreMgr {
         String type = sc.next();
         Vehicle v = Factory.getVehicle(type);
         list.add(v);
+        System.out.println("增加成功");
         return true;
     }
 
@@ -45,6 +47,7 @@ public class DefaultStoreMgr extends User implements StoreMgr {
                 list.remove(i);
             }
         }
+        System.out.println("删除成功");
         return true;
     }
 

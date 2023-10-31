@@ -1,4 +1,4 @@
-package RentCar.RentCar;
+package RentCarer.RentCar;
 
 public class Vehicle {// 所有车类的父类
     private String vehicleId;// 共有属性：车牌，品牌，租金

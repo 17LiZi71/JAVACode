@@ -1,37 +1,27 @@
-package third.vehicle;
+package RentCarer.RentCar;
 
 import java.util.Scanner;
 
-import third.RentMgr;
+import RentCarer.RentMgrSys;
 
-public class Bus extends Vehicle implements LeaseOutFlow,CalRent{
-    private int passengerCapacity;
-    Scanner sc = RentMgr.sc;
+public class Bus extends Vehicle {//继承自Vehicle
+    private int capacity;//特有成员变量：载客量
+    Scanner sc = RentMgrSys.sc;
+
+    public Bus(String vehicleId, String brand, int perRent, int capacity) {
+        super(vehicleId, brand, perRent);
+        this.capacity = capacity;
+    }
+
     public Bus() {
-
     }
 
-    public Bus(int passengerCapacity) {
-        this.passengerCapacity = passengerCapacity;
+    public int getCapacity() {
+        return this.capacity;
     }
 
-    public Bus(String vehicleId, String brand, int perRent, int passengerCapacity,String type) {
-        super(vehicleId, brand, perRent,type);
-        this.passengerCapacity = passengerCapacity;
-    }
-
-    public int getPassengerCapacity() {
-        return passengerCapacity;
-    }
-
-    public void setPassengerCapacity(int passengerCapacity) {
-        this.passengerCapacity = passengerCapacity;
-    }
-
-    @Override
-    public String toString() {
-        return "Bus [VehicleId=" + super.getVehicleId() + ", brand=" + super.getBrand() + ", perRent="
-                + super.getPerRent() + "]";
+    public void setType(int capacity) {
+        this.capacity = capacity;
     }
 
     public void leaseOutFlow() {// 实现租赁
@@ -56,4 +46,5 @@ public class Bus extends Vehicle implements LeaseOutFlow,CalRent{
         }
         return days * super.getPerRent();
     }
+
 }

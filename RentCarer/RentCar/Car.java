@@ -1,27 +1,27 @@
-package RentCar.RentCar;
+package RentCarer.RentCar;
 
 import java.util.Scanner;
 
-import RentCar.RentMgrSys;
+import RentCarer.RentMgrSys;
 
-public class Bus extends Vehicle {//继承自Vehicle
-    private int capacity;//特有成员变量：载客量
+public class Car extends Vehicle {// Car类继承自Vehicle类
+    private String type;//特有属性：品牌
     Scanner sc = RentMgrSys.sc;
 
-    public Bus(String vehicleId, String brand, int perRent, int capacity) {
+    public Car(String vehicleId, String brand, int perRent, String type) {
         super(vehicleId, brand, perRent);
-        this.capacity = capacity;
+        this.type = type;
     }
 
-    public Bus() {
+    public Car() {
     }
 
-    public int getCapacity() {
-        return this.capacity;
+    public String getType() {
+        return type;
     }
 
-    public void setType(int capacity) {
-        this.capacity = capacity;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public void leaseOutFlow() {// 实现租赁
@@ -32,19 +32,15 @@ public class Bus extends Vehicle {//继承自Vehicle
     }
 
     public float calRent(int days) {// 计算租金
-        if (days >= 150) {
-            return (float) (days * super.getPerRent() * 0.6);
-        }
-        if (days >= 30) {
+        if (days > 150) {
             return (float) (days * super.getPerRent() * 0.7);
         }
-        if (days >= 7) {
+        if (days > 30) {
             return (float) (days * super.getPerRent() * 0.8);
         }
-        if (days >= 3) {
+        if (days > 7) {
             return (float) (days * super.getPerRent() * 0.9);
         }
         return days * super.getPerRent();
     }
-
 }

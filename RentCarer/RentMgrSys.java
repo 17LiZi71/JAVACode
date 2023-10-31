@@ -1,10 +1,10 @@
-package RentCar;
+package RentCarer;
 
 import java.util.Scanner;
 
-import RentCar.RentCar.Bus;
-import RentCar.RentCar.Car;
-import RentCar.RentCar.Trunk;
+import RentCarer.RentCar.Bus;
+import RentCarer.RentCar.Car;
+import RentCarer.RentCar.Trunk;
 
 public class RentMgrSys {
     public static Scanner sc = new Scanner(System.in);

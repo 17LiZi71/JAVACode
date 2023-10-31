@@ -1,15 +1,16 @@
-package third.user;
+package RentCar.user;
 
 import java.util.Scanner;
 
-import third.RentMgr;
+import RentCar.RentMgr;
 
-public class User {
+public abstract class User {
     private String UserID;
     private String UserName;
     private String UserPwd;
-    Scanner sc = RentMgr.sc;
-    public User logOn() {
+    static Scanner sc = RentMgr.sc;
+
+    public static User logOn() {
         System.out.println("请输入用户名：");
         String name = sc.next();
         System.out.println("请输入密码：");
@@ -20,7 +21,7 @@ public class User {
             return storeMgr;
         } else if (name.equals("张三") && password.equals("1234567")) {
             System.out.println("顾客登录成功！");
-            DefaultCustomer customer = new DefaultCustomer("2","张三","1234567");
+            DefaultCustomer customer = new DefaultCustomer("2", "张三", "1234567");
             return customer;
         }
         System.out.println("登录失败，请重新登录");

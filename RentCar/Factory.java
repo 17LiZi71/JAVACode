@@ -1,11 +1,11 @@
-package third;
+package RentCar;
 
 import java.util.Scanner;
 
-import third.vehicle.Bus;
-import third.vehicle.Car;
-import third.vehicle.Trunk;
-import third.vehicle.Vehicle;
+import RentCar.vehicle.Bus;
+import RentCar.vehicle.Car;
+import RentCar.vehicle.Trunk;
+import RentCar.vehicle.Vehicle;
 
 public class Factory {
     public static Scanner sc = RentMgr.sc;

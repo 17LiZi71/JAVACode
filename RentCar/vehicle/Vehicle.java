@@ -1,4 +1,4 @@
-package third.vehicle;
+package RentCar.vehicle;
 
     public class Vehicle {
         private String vehicleId;
