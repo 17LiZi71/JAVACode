@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.rentcal.bean.vehicle.Bus;
+import com.rentcal.bean.vehicle.Car;
+import com.rentcal.bean.vehicle.Trunk;
 import com.rentcal.bean.vehicle.Vehicle;
 import com.rentcal.util.JDBCUtils;
 
@@ -16,13 +19,25 @@ public class Vehicletb {
     static ResultSet rs = JDBCUtils.rs;
 
     // 添加车辆
-    public static boolean addNewVehicles(Vehicle vehicle, String model) throws SQLException {
+    public static boolean addNewVehicles(Vehicle vehicle) throws SQLException {
         String sql = "insert into vehicle_tb(brand,type,perrent,model,vehicle_number)values(?,?,?,?,?);";
         pstmt = conn.prepareStatement(sql);
+        if (vehicle instanceof Car) {
+            Car newCar = (Car) vehicle;
+            pstmt.setString(4, newCar.getModel());
+        }
+        if (vehicle instanceof Bus) {
+            Bus newBus = (Bus) vehicle;
+            pstmt.setString(4, newBus.getPassengerCapacity());
+        }
+        if (vehicle instanceof Trunk) {
+            Trunk newTrunk = (Trunk) vehicle;
+            pstmt.setString(4, newTrunk.getCargoCapacity());
+        }
+        
         pstmt.setString(1, vehicle.getBrand());
         pstmt.setString(2, vehicle.getType());
         pstmt.setInt(3, vehicle.getPerRent());
-        pstmt.setString(4, model);
         pstmt.setString(5, vehicle.getVehicleId());
         int result = pstmt.executeUpdate();
         if (result != 0) {
@@ -51,7 +66,7 @@ public class Vehicletb {
         while (rs.next()) {
             System.out.println("*编号:" + rs.getInt(1) + "  品牌:" + rs.getString(2) + "  种类:" + rs.getString(3) + "  日租金:"
                     + rs.getInt(4) + "  型号:" + rs.getString(5) + "  状态:" + rs.getString(6) + "  车牌号:"
-                    + rs.getString(7)+"*");
+                    + rs.getString(7) + "*");
         }
         return false;
     }

@@ -1,6 +1,6 @@
 package RentCar.vehicle;
 
-    public class Vehicle {
+    public abstract class Vehicle {
         private String vehicleId;
         private String brand;
         private int perRent;

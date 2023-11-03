@@ -42,8 +42,8 @@ public class View {
             System.out.println("*按3进行租赁,按4进行归还        *");
             System.out.println("*按5查看订单,按6充值Vip         *");
             System.out.println("*按7退出系统                    *");
-            try {
-                while (choose != Constants.EXIT_SYSTEM) {
+            while (choose != Constants.EXIT_SYSTEM) {
+                try {
                     choose = sc.nextInt();
                     switch (choose) {
                         case Constants.PRICE_ASCENDING:
@@ -69,9 +69,10 @@ public class View {
                         default:
                             break;
                     }
+                } catch (Exception e) {
+                    System.out.println("输入错误,请重新选择服务");
+                    sc.next();
                 }
-            } catch (Exception e) {
-                System.out.println("输入错误,请重新选择服务");
             }
         }
         if (user instanceof DefaultStoreMgr) {
@@ -82,8 +83,8 @@ public class View {
             System.out.println("按3增加车辆,按4删除车辆");
             System.out.println("按5修改车辆日租金,按6修改车辆车牌号");
             System.out.println("按7退出系统,按8查看账单");
-            try {
-                while (choose != Constants.EXIT_SYSTEM) {
+            while (choose != Constants.EXIT_SYSTEM) {
+                try {
                     choose = sc.nextInt();
                     switch (choose) {
                         case Constants.PRICE_ASCENDING:
@@ -112,9 +113,10 @@ public class View {
                         default:
                             break;
                     }
+                } catch (Exception e) {
+                    System.out.println("输入错误,请重新选择服务");
+                    sc.next();
                 }
-            } catch (Exception e) {
-                System.out.println("输入错误,请重新选择服务");
             }
         }
         System.out.println("退出系统成功");

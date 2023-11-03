@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import RentCar.vehicle.Vehicle;
 
 public interface Customer {
-    void viewCarInformation(ArrayList<Vehicle> list);
+    public void viewCarInformation(ArrayList<Vehicle> list);
 
-    boolean rentalCar(ArrayList<Vehicle> list);
+    public boolean rentalCar(ArrayList<Vehicle> list);
 }
