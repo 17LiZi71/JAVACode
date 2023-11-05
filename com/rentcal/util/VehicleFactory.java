@@ -11,6 +11,23 @@ import com.rentcal.control.View;
 public class VehicleFactory {
     static Scanner sc = View.sc;
 
+    public static Vehicle factory(String type) {
+        switch (type) {
+            case "轿车":
+                Car newCar = new Car();
+                return newCar;
+            case "客车":
+                Bus newBus = new Bus();
+                return newBus;
+            case "货车":
+                Trunk newTrunk = new Trunk();
+                return newTrunk;
+            default:
+                break;
+        }
+        return null;
+    }
+
     public static Vehicle vehicleFactory(String type) {
         System.out.println("请输入新增车的品牌:");
         String brand = sc.next();
@@ -22,12 +39,12 @@ public class VehicleFactory {
             case "轿车":
                 System.out.println("请输入轿车的型号:");
                 String model = sc.next();
-                Car newCar=new Car(number, brand, type, perrent, model);
+                Car newCar = new Car(number, brand, type, perrent, model);
                 return newCar;
             case "客车":
                 System.out.println("请输入客车的载客量:");
                 String passengerCapacit = sc.next();
-                Bus newBus = new Bus(number, brand, type, perrent,passengerCapacit);
+                Bus newBus = new Bus(number, brand, type, perrent, passengerCapacit);
                 return newBus;
             case "货车":
                 System.out.println("请输入货车的载重量:");

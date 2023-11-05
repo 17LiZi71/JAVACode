@@ -31,21 +31,21 @@ public class Usertb {
         return false;
     }
 
-    // 查找用户
-    public static User seekUser(User user) throws SQLException {
+    // 查找用户，并返回用户类
+    public static User seekUser(String userName, String userPwd) throws SQLException {
         String sql = "select * from user_tb where user_name = ? and user_pwd = ?";
         pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, user.getUserName());
-        pstmt.setString(2, user.getUserPwd());
+        pstmt.setString(1, userName);
+        pstmt.setString(2, userPwd);
         rs = pstmt.executeQuery();
         if (rs.next()) {
             if (rs.getString(6).equals("admin")) {
-                return new DefaultStoreMgr(user.getUserName(), user.getUserPwd(), rs.getInt(1));
+                return new DefaultStoreMgr(userName, userPwd, rs.getInt(1));
             }
             if (rs.getString(6).equals("Vip")) {
-                return new VipCustomer(user.getUserName(), user.getUserPwd(), rs.getInt(1));
+                return new VipCustomer(userName, userPwd, rs.getInt(1));
             }
-            return new DefaultCustomer(user.getUserName(), user.getUserPwd(), rs.getInt(1));
+            return new DefaultCustomer(userName, userPwd, rs.getInt(1));
         }
         return null;
     }
@@ -67,7 +67,7 @@ public class Usertb {
         String sql = "SELECT * FROM user_tb;";
         pstmt = conn.prepareStatement(sql);
         rs = pstmt.executeQuery(sql);
-        while (rs.next() && (rs.getString(6).equals("admin") != true)) {
+        while (rs.next()) {
             System.out.println("ID:" + rs.getInt(1) + "  用户名:" + rs.getString(2) + "  密码:" + rs.getString(3) + "  住址:"
                     + rs.getString(4) + "  电话:" + rs.getString(5));
         }
@@ -110,13 +110,13 @@ public class Usertb {
             int[] order = decodeOrders(rs.getString(7));
             System.out.print("1.租用");
             Vehicletb.vehicleidShow(order[0]);
-            System.out.print(" "+order[1] + "天\n");
+            System.out.print(" " + order[1] + "天\n");
         }
         if (!rs.getString(8).equals("default")) {
             int[] order = decodeOrders(rs.getString(8));
             System.out.print("2.租用");
             Vehicletb.vehicleidShow(order[0]);
-            System.out.print(" "+order[1] + "天\n");
+            System.out.print(" " + order[1] + "天\n");
         }
     }
 

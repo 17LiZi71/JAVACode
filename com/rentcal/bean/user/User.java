@@ -1,6 +1,6 @@
 package com.rentcal.bean.user;
 
-public class User {
+public abstract class User {
     private int userID;
     private String userName;
     private String userPwd;

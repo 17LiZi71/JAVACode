@@ -1,6 +1,6 @@
 package com.rentcal.bean.vehicle;
 
-public class Vehicle {
+public abstract class Vehicle {
     private String vehicleId;
     // 车牌号
     private String brand;

@@ -9,8 +9,9 @@ import com.rentcal.dao.Usertb;
 import com.rentcal.dao.Vehicletb;
 import com.rentcal.service.Interfation.UserRepaid;
 
-public class Repaid implements UserRepaid{
+public class Repaid implements UserRepaid {
     static Scanner sc = View.sc;
+
     @Override
     public void repaid(User user) throws SQLException {
         Usertb.showLease(user);

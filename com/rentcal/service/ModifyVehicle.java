@@ -19,7 +19,7 @@ public class ModifyVehicle implements ModifyVeInmtion{
         System.out.println("车辆修改成功");
         return Vehicletb.modifyprice(vehicleId, price);
     }
-
+    @Override
     public boolean modifyVehicleNumber() throws SQLException {
         System.out.println("输入要修改的车辆的编号");
         int vehicleId = sc.nextInt();

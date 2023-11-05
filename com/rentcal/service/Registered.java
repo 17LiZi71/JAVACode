@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.rentcal.bean.user.DefaultCustomer;
-import com.rentcal.bean.user.User;
 import com.rentcal.control.View;
 import com.rentcal.dao.Usertb;
 import com.rentcal.service.Interfation.UserRegistered;
@@ -19,8 +18,8 @@ public class Registered implements UserRegistered {
             String name = sc.next();
             System.out.println("请输入注册密码:");
             String pwd = sc.next();
-            if (Usertb.seekUser(new User(name, pwd)) != null) {
-                System.out.println("该用户以存在");
+            if (Usertb.seekUser(name, pwd) != null) {
+                System.out.println("该用户已存在");
             } else {
                 newUser = new DefaultCustomer(name, pwd);
                 System.out.println("请完善个人信息");

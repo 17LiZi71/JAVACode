@@ -4,4 +4,6 @@ import java.sql.SQLException;
 
 public interface StoreDeleteVe {
     public boolean deleteVehicle() throws SQLException;
+
+    public boolean deleteUser() throws SQLException;
 }

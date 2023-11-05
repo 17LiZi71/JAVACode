@@ -8,4 +8,6 @@ public interface ViewSundry {
     public void showUserOrder(User user) throws SQLException;
 
     public void showMoney() throws SQLException;
+
+    public void viewUser() throws SQLException;
 }

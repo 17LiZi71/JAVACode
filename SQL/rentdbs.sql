@@ -39,3 +39,5 @@ INSERT INTO business (turnover) VALUES (0);
 update user_tb set permissions='Vip' WHERE user_id =7;
 --@block
 delete from user_tb where user_id=8;
+--@block
+UPDATE user_tb SET user_id = 3 WHERE user_name='李四';

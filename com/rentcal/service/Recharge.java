@@ -26,7 +26,7 @@ public class Recharge implements UserRecharge {
             Business.income(Business.showTurnover() + 100);
             System.out.println("支付成功,您已成为Vip用户");
             Usertb.changePermission(user);
-            return Usertb.seekUser(user);
+            return Usertb.seekUser(user.getUserName(), user.getUserPwd());
         }
         return user;
     }

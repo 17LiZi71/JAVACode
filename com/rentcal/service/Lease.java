@@ -13,8 +13,9 @@ import com.rentcal.dao.Business;
 import com.rentcal.dao.Usertb;
 import com.rentcal.dao.Vehicletb;
 import com.rentcal.service.Interfation.UserLease;
+import com.rentcal.util.VehicleFactory;
 
-public class Lease implements UserLease{
+public class Lease implements UserLease {
     static Scanner sc = View.sc;
 
     @Override
@@ -30,12 +31,13 @@ public class Lease implements UserLease{
         Collections.addAll(list2, "type", "brand", "model");
         System.out.println("1.轿车  2.客车  3.货车");
         System.out.println("请选择你要租赁的汽车类型");
-        Vehicle vehicle = new Vehicle();
+        Vehicle vehicle = null;
         int chose = -1;
         // 选择车辆
         for (int i = 1; i < 3; i++) {
             chose = sc.nextInt();
             if (i == 1) {
+                vehicle = VehicleFactory.factory(list1.get(chose - 1));
                 vehicle.setType(list1.get(chose - 1));
             }
             if (i == 2) {
@@ -57,7 +59,7 @@ public class Lease implements UserLease{
         System.out.println("按y确认支付,按其他键取消支付");
         String payment = sc.next();
         if (payment.equals("y")) {
-            Business.income(price+Business.showTurnover());
+            Business.income(price + Business.showTurnover());
             Usertb.addLease(user, vehicle_id + " " + days, orderNumber);
             System.out.println("租赁成功,您的车牌号是" + Vehicletb.obtainPlate(vehicle_id));
             Vehicletb.modifyStatus(vehicle_id, "Rented");

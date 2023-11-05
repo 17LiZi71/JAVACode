@@ -5,10 +5,12 @@ import java.util.Scanner;
 
 import com.rentcal.bean.vehicle.Vehicle;
 import com.rentcal.control.View;
+import com.rentcal.dao.Usertb;
 import com.rentcal.dao.Vehicletb;
 import com.rentcal.service.Interfation.StoreDeleteVe;
+import com.rentcal.util.VehicleFactory;
 
-public class DeleteVehicle implements StoreDeleteVe{
+public class Delete implements StoreDeleteVe {
     static Scanner sc = View.sc;
 
     @Override
@@ -19,7 +21,7 @@ public class DeleteVehicle implements StoreDeleteVe{
         String brand = sc.next();
         System.out.println("请输入删除车的型号:");
         String model = sc.next();
-        Vehicle oldVehicle = new Vehicle();
+        Vehicle oldVehicle = VehicleFactory.factory(type);
         oldVehicle.setType(type);
         oldVehicle.setBrand(brand);
         if (Vehicletb.findVehicle(oldVehicle, model) == -1) {
@@ -30,7 +32,16 @@ public class DeleteVehicle implements StoreDeleteVe{
         return Vehicletb.deleteVehicle(Vehicletb.findVehicle(oldVehicle, model));
     }
 
-    public static DeleteVehicle getDeleteVehicle() {
-        return new DeleteVehicle();
+    @Override
+    public boolean deleteUser() throws SQLException {
+        System.out.println("请输入要删除的用户ID");
+        int userID = sc.nextInt();
+        Usertb.deleteUser(userID);
+        System.out.println("删除用户成功");
+        return true;
+    }
+
+    public static Delete getDeleteVehicle() {
+        return new Delete();
     }
 }
