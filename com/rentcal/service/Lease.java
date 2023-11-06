@@ -39,8 +39,10 @@ public class Lease implements UserLease {
             if (i == 1) {
                 vehicle = VehicleFactory.factory(list1.get(chose - 1));
                 vehicle.setType(list1.get(chose - 1));
+                System.out.println("请选择你要租赁的汽车品牌");
             }
             if (i == 2) {
+                System.out.println("请选择你要租赁的具体型号");
                 vehicle.setBrand(list1.get(chose - 1));
             }
             list1 = Vehicletb.Deduplication(list2.get(i), list2.get(i - 1), list1.get(chose - 1));
