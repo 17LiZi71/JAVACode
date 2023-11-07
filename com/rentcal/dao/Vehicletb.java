@@ -14,6 +14,7 @@ import com.rentcal.bean.vehicle.Vehicle;
 import com.rentcal.util.JDBCUtils;
 
 public class Vehicletb {
+    // 车辆数据表管理
     static Connection conn = JDBCUtils.conn;
     static PreparedStatement pstmt = JDBCUtils.pstmt;
     static ResultSet rs = JDBCUtils.rs;
@@ -34,7 +35,7 @@ public class Vehicletb {
             Trunk newTrunk = (Trunk) vehicle;
             pstmt.setString(4, newTrunk.getCargoCapacity());
         }
-        
+
         pstmt.setString(1, vehicle.getBrand());
         pstmt.setString(2, vehicle.getType());
         pstmt.setInt(3, vehicle.getPerRent());

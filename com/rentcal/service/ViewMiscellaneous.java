@@ -8,6 +8,7 @@ import com.rentcal.dao.Usertb;
 import com.rentcal.service.Interfation.ViewSundry;
 
 public class ViewMiscellaneous implements ViewSundry {
+    // 营业额及用户查看方法，实现了ViewSundry方法
     @Override
     public void showUserOrder(User user) throws SQLException {
         System.out.println("查看订单");
@@ -18,6 +19,7 @@ public class ViewMiscellaneous implements ViewSundry {
     public void showMoney() throws SQLException {
         System.out.println("共营收" + Business.showTurnover() + "元");
     }
+
     @Override
     public void viewUser() throws SQLException {
         System.out.println("用户信息展示");

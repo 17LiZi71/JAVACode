@@ -1,6 +1,6 @@
 package com.rentcal.bean.vehicle;
 
-public abstract class Vehicle {
+public abstract class Vehicle {// 抽象类Vehicle，所有种类车辆的父类
     private String vehicleId;
     // 车牌号
     private String brand;
@@ -11,6 +11,8 @@ public abstract class Vehicle {
     // 日租金
     private String state;
 
+    // 定义车辆所共有的变量
+    // 定义带参，无参以及公共的get，set方法
     public Vehicle(String vehicleId, String brand, String type, int perRent, String state) {
         this.vehicleId = vehicleId;
         this.brand = brand;

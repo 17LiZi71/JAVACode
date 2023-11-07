@@ -9,6 +9,7 @@ import com.rentcal.bean.vehicle.Vehicle;
 import com.rentcal.control.View;
 
 public class VehicleFactory {
+    // 车辆工厂类，通过传入参数车辆种类的不同，返回不同的车辆类
     static Scanner sc = View.sc;
 
     public static Vehicle factory(String type) {

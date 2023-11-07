@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class JDBCUtils {
+    //JDBC工具类，建立与mysql数据库的连接
     public static Connection conn = null;
     public static PreparedStatement pstmt = null;
     public static ResultSet rs = null;

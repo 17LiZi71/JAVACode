@@ -8,10 +8,12 @@ import java.sql.SQLException;
 import com.rentcal.util.JDBCUtils;
 
 public class Business {
+    // 总营业额数据表管理
     static Connection conn = JDBCUtils.conn;
     static PreparedStatement pstmt = JDBCUtils.pstmt;
     static ResultSet rs = JDBCUtils.rs;
 
+    // 添加营业额
     public static boolean income(int money) throws SQLException {
         String sql = "update business set turnover = ?";
         pstmt = conn.prepareStatement(sql);
@@ -23,6 +25,7 @@ public class Business {
         return false;
     }
 
+    // 返回总营业额
     public static int showTurnover() throws SQLException {
         String sql = "select * from business;";
         pstmt = conn.prepareStatement(sql);

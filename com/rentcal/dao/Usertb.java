@@ -12,6 +12,7 @@ import com.rentcal.bean.user.VipCustomer;
 import com.rentcal.util.JDBCUtils;
 
 public class Usertb {
+    //用户数据表管理
     static Connection conn = JDBCUtils.conn;
     static PreparedStatement pstmt = JDBCUtils.pstmt;
     static ResultSet rs = JDBCUtils.rs;

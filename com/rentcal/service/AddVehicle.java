@@ -9,7 +9,8 @@ import com.rentcal.dao.Vehicletb;
 import com.rentcal.service.Interfation.StoreAddVehicle;
 import com.rentcal.util.VehicleFactory;
 
-public class AddVehicle implements StoreAddVehicle{
+public class AddVehicle implements StoreAddVehicle {
+    //添加车辆
     static Scanner sc = View.sc;
     @Override
     public boolean AddnewVehicle() throws SQLException {

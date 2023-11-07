@@ -12,7 +12,7 @@ import com.rentcal.service.Interfation.UserRecharge;
 
 public class Recharge implements UserRecharge {
     static Scanner sc = View.sc;
-
+    //充值Vip方法，调用 Usertb.changePermission方法，改变用户权限
     @Override
     public User recharge(User user) throws SQLException {
         System.out.println("Vip用户可以同时租赁两辆车");

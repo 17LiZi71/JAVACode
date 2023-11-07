@@ -12,6 +12,7 @@ import com.rentcal.dao.Usertb;
 import com.rentcal.service.Interfation.UserLogin;
 
 public class Login implements UserLogin {
+    //用户登录方法
     @Override
     public User login() throws SQLException {
         Scanner sc = View.sc;
@@ -22,6 +23,7 @@ public class Login implements UserLogin {
             System.out.println("请输入密码:");
             String pwd = sc.next();
             user = Usertb.seekUser(name, pwd);
+            //调用Usertb.seekUser方法，查找用户，并根据用户权限返回不同的用户对象
             if (user instanceof VipCustomer) {
                 System.out.println("vip用户登录成功");
                 break;

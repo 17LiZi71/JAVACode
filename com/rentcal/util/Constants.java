@@ -1,6 +1,7 @@
 package com.rentcal.util;
 
 public class Constants {
+    //常量类工具，避免魔法值的出现
     public static final int PRICE_ASCENDING = 1;
     public static final int PRICE_DESCENDING = 2;
     public static final int RENT_CAR = 3;

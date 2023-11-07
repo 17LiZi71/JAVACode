@@ -27,13 +27,14 @@ public class View {
         System.out.println("*     按1登录,按2注册    *");
         int login = sc.nextInt();
         User user = null;
-        if (login == Constants.LOG_ON) {
+        if (login == Constants.LOG_ON) {// 进行登录
             user = Login.getLogin().login();
         }
-        if (login == Constants.REGISTER) {
+        if (login == Constants.REGISTER) {// 进行注册
             user = Registered.getRegistered().registered();
         }
         if (user instanceof DefaultCustomer || user instanceof VipCustomer) {
+            // 用户对功能进行选择
             int choose = 0;
             System.out.println("*************************");
             System.out.println("*      请选择服务：     *");
@@ -66,7 +67,7 @@ public class View {
                             break;
                         case Constants.EXIT_SYSTEM:// 退出系统
                             break;
-                        case Constants.DEFAULT_COLLATION:
+                        case Constants.DEFAULT_COLLATION:// 车辆按默认编号顺序进行排序
                             ShowVehicles.getShowVehicles().showVehicle();
                             break;
                         default:
@@ -78,7 +79,7 @@ public class View {
                 }
             }
         }
-        if (user instanceof DefaultStoreMgr) {
+        if (user instanceof DefaultStoreMgr) {// 管理员进行功能选择
             int choose = 0;
             System.out.println("*************************");
             System.out.println("*      请选择操作：     *");
@@ -92,35 +93,35 @@ public class View {
                     choose = sc.nextInt();
                     switch (choose) {
                         case Constants.SHOW_USER:
-                            ViewMiscellaneous.getMiscellaneous().viewUser();
+                            ViewMiscellaneous.getMiscellaneous().viewUser();// 查看用户信息
                             break;
-                        case Constants.DELETE_USER:
+                        case Constants.DELETE_USER:// 删除指定用户
                             Delete.getDeleteVehicle().deleteUser();
                             break;
-                        case Constants.ADD_VEHICLES:
+                        case Constants.ADD_VEHICLES:// 添加车辆
                             AddVehicle.getAddVehicle().AddnewVehicle();
                             break;
-                        case Constants.DELETE_VEHICLES:
+                        case Constants.DELETE_VEHICLES:// 删除指定车辆
                             Delete.getDeleteVehicle().deleteVehicle();
                             break;
-                        case Constants.MODIFY_PRICE:
+                        case Constants.MODIFY_PRICE:// 更改车辆价格
                             ModifyVehicle.getModifyVehicle().modifyVehiclePrice();
                             break;
-                        case Constants.MODIFY_NUMBER:
+                        case Constants.MODIFY_NUMBER:// 更改车辆车牌号
                             ModifyVehicle.getModifyVehicle().modifyVehicleNumber();
                             break;
-                        case Constants.EXIT_SYSTEM:
+                        case Constants.EXIT_SYSTEM:// 退出系统
                             break;
-                        case Constants.DEFAULT_COLLATION:
+                        case Constants.DEFAULT_COLLATION:// 按编号默认展示车辆
                             ShowVehicles.getShowVehicles().showVehicle();
                             break;
-                        case Constants.VIEW_BILLS:
+                        case Constants.VIEW_BILLS:// 查看总流水
                             ViewMiscellaneous.getMiscellaneous().showMoney();
                             break;
                         default:
                             break;
                     }
-                } catch (Exception e) {
+                } catch (Exception e) {// try catch语句进行异常捕获
                     System.out.println("输入错误,请重新选择服务");
                     sc.next();
                 }

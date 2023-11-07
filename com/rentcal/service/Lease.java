@@ -16,6 +16,7 @@ import com.rentcal.service.Interfation.UserLease;
 import com.rentcal.util.VehicleFactory;
 
 public class Lease implements UserLease {
+    // 租赁方法，实现UserLease接口
     static Scanner sc = View.sc;
 
     @Override
@@ -57,18 +58,23 @@ public class Lease implements UserLease {
         System.out.println("可以租赁,请输入租赁时间");
         int days = sc.nextInt();
         int price = Vehicletb.priceInquiry(vehicle_id) * days;
+        // 调用Vehicletb.priceInquiry方法获取车辆日租金，然后计算总租金
         System.out.println("需支付" + price + "元");
         System.out.println("按y确认支付,按其他键取消支付");
         String payment = sc.next();
         if (payment.equals("y")) {
             Business.income(price + Business.showTurnover());
+            // 调用Business.showTurnover()方法将用户支付的租金写入营业额表
             Usertb.addLease(user, vehicle_id + " " + days, orderNumber);
+            // 调用Usertb.addLease()方法将租车订单写入用户订单数据列
             System.out.println("租赁成功,您的车牌号是" + Vehicletb.obtainPlate(vehicle_id));
+            //调用Vehicletb.modifyStatus方法将车辆状态改为rented
             Vehicletb.modifyStatus(vehicle_id, "Rented");
         }
         return false;
     }
 
+    // 根据用户选择展示车辆
     public void showList(List<String> list) {
         for (int i = 1; i <= list.size(); i++) {
             System.out.print(i + ". " + list.get(i - 1) + "  ");

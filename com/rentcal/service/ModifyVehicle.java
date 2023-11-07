@@ -7,7 +7,8 @@ import com.rentcal.control.View;
 import com.rentcal.dao.Vehicletb;
 import com.rentcal.service.Interfation.ModifyVeInmtion;
 
-public class ModifyVehicle implements ModifyVeInmtion{
+public class ModifyVehicle implements ModifyVeInmtion {
+    //修改车辆方法，实现了ModifyVeInmtion接口
     static Scanner sc = View.sc;
     @Override
     // 修改租金
@@ -19,6 +20,7 @@ public class ModifyVehicle implements ModifyVeInmtion{
         System.out.println("车辆修改成功");
         return Vehicletb.modifyprice(vehicleId, price);
     }
+    //修改车辆车牌
     @Override
     public boolean modifyVehicleNumber() throws SQLException {
         System.out.println("输入要修改的车辆的编号");

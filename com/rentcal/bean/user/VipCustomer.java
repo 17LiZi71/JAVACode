@@ -1,9 +1,10 @@
 package com.rentcal.bean.user;
 
 public class VipCustomer extends User {
+    //Vip用户类，继承自User
     public VipCustomer() {
     }
-
+    //定义带参和无参构造方法
     public VipCustomer(String userName, String userPwd) {
         super(userName, userPwd);
     }

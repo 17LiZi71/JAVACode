@@ -9,6 +9,7 @@ import com.rentcal.dao.Usertb;
 import com.rentcal.service.Interfation.UserRegistered;
 
 public class Registered implements UserRegistered {
+    // 注册方法，实现了UserRegistered接口，注册新用户
     @Override
     public DefaultCustomer registered() throws SQLException {
         Scanner sc = View.sc;
@@ -19,6 +20,7 @@ public class Registered implements UserRegistered {
             System.out.println("请输入注册密码:");
             String pwd = sc.next();
             if (Usertb.seekUser(name, pwd) != null) {
+                // 通过调用Usertb.seekUser方法，查看该用户是否注册过
                 System.out.println("该用户已存在");
             } else {
                 newUser = new DefaultCustomer(name, pwd);
@@ -33,6 +35,7 @@ public class Registered implements UserRegistered {
                 }
             }
         }
+        // 注册完成返回用户类
         return newUser;
     }
 

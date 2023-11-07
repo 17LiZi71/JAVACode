@@ -6,6 +6,8 @@ import com.rentcal.dao.Vehicletb;
 import com.rentcal.service.Interfation.ShowCar;
 
 public class ShowVehicles implements ShowCar {
+    //展示类，实现了ShowCar接口
+    
     @Override
     public void showVehicle() throws SQLException {
         System.out.println("展示所有车辆");

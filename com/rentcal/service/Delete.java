@@ -11,8 +11,10 @@ import com.rentcal.service.Interfation.StoreDeleteVe;
 import com.rentcal.util.VehicleFactory;
 
 public class Delete implements StoreDeleteVe {
+    // 定义删除方法
     static Scanner sc = View.sc;
 
+    // 删除车辆
     @Override
     public boolean deleteVehicle() throws SQLException {
         System.out.println("请输入删除车的类型:");
@@ -32,6 +34,7 @@ public class Delete implements StoreDeleteVe {
         return Vehicletb.deleteVehicle(Vehicletb.findVehicle(oldVehicle, model));
     }
 
+    // 删除用户
     @Override
     public boolean deleteUser() throws SQLException {
         System.out.println("请输入要删除的用户ID");
