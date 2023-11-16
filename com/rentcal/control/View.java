@@ -7,16 +7,9 @@ import com.rentcal.bean.user.DefaultCustomer;
 import com.rentcal.bean.user.DefaultStoreMgr;
 import com.rentcal.bean.user.User;
 import com.rentcal.bean.user.VipCustomer;
-import com.rentcal.service.AddVehicle;
-import com.rentcal.service.Delete;
-import com.rentcal.service.Lease;
+import com.rentcal.service.AdminService;
+import com.rentcal.service.CustomerService;
 import com.rentcal.service.Login;
-import com.rentcal.service.ModifyVehicle;
-import com.rentcal.service.Recharge;
-import com.rentcal.service.Registered;
-import com.rentcal.service.Repaid;
-import com.rentcal.service.ShowVehicles;
-import com.rentcal.service.ViewMiscellaneous;
 import com.rentcal.util.Constants;
 
 public class View {
@@ -31,7 +24,7 @@ public class View {
             user = Login.getLogin().login();
         }
         if (login == Constants.REGISTER) {// 进行注册
-            user = Registered.getRegistered().registered();
+            user = CustomerService.getCustomerService().cusRegistered();
         }
         if (user instanceof DefaultCustomer || user instanceof VipCustomer) {
             // 用户对功能进行选择
@@ -48,27 +41,27 @@ public class View {
                     choose = sc.nextInt();
                     switch (choose) {
                         case Constants.PRICE_ASCENDING:
-                            ShowVehicles.getShowVehicles().showVehicleAsc();// 价格升序查看车辆
+                            CustomerService.getCustomerService().cusShowVehicleAsc();// 价格升序查看车辆
                             break;
                         case Constants.PRICE_DESCENDING:
-                            ShowVehicles.getShowVehicles().showVehicleDesc();// 价格降序查看车辆
+                            CustomerService.getCustomerService().cusShowVehicleDesc();// 价格降序查看车辆
                             break;
                         case Constants.RENT_CAR:
-                            Lease.getLease().lease(user);// 租赁车辆
+                            CustomerService.getCustomerService().cusLease(user);// 租赁车辆
                             break;
                         case Constants.REPAID_CAR:
-                            Repaid.getRepaid().repaid(user);// 归还车辆
+                            CustomerService.getCustomerService().cusRepaid(user);// 归还车辆
                             break;
                         case Constants.ORDER_DISPLAY:
-                            ViewMiscellaneous.getMiscellaneous().showUserOrder(user);// 查看订单
+                            CustomerService.getCustomerService().cusShowUserOrder(user);// 查看订单
                             break;
                         case Constants.RECHARGE_VIP:
-                            user = Recharge.getRecharge().recharge(user);// 充值Vip
+                            user = CustomerService.getCustomerService().cusRecharge(user);// 充值Vip
                             break;
                         case Constants.EXIT_SYSTEM:// 退出系统
                             break;
                         case Constants.DEFAULT_COLLATION:// 车辆按默认编号顺序进行排序
-                            ShowVehicles.getShowVehicles().showVehicle();
+                            CustomerService.getCustomerService().cusShowVehicle();
                             break;
                         default:
                             break;
@@ -93,30 +86,30 @@ public class View {
                     choose = sc.nextInt();
                     switch (choose) {
                         case Constants.SHOW_USER:
-                            ViewMiscellaneous.getMiscellaneous().viewUser();// 查看用户信息
+                            AdminService.getAdminService().admViewUser();// 查看用户信息
                             break;
                         case Constants.DELETE_USER:// 删除指定用户
-                            Delete.getDeleteVehicle().deleteUser();
+                            AdminService.getAdminService().admDeleteUser();
                             break;
                         case Constants.ADD_VEHICLES:// 添加车辆
-                            AddVehicle.getAddVehicle().AddnewVehicle();
+                            AdminService.getAdminService().admAddnewVehicle();
                             break;
                         case Constants.DELETE_VEHICLES:// 删除指定车辆
-                            Delete.getDeleteVehicle().deleteVehicle();
+                            AdminService.getAdminService().admDeleteVehicle();
                             break;
                         case Constants.MODIFY_PRICE:// 更改车辆价格
-                            ModifyVehicle.getModifyVehicle().modifyVehiclePrice();
+                            AdminService.getAdminService().admModifyVehiclePrice();
                             break;
                         case Constants.MODIFY_NUMBER:// 更改车辆车牌号
-                            ModifyVehicle.getModifyVehicle().modifyVehicleNumber();
+                            AdminService.getAdminService().admOdifyVehicleNumber();
                             break;
                         case Constants.EXIT_SYSTEM:// 退出系统
                             break;
                         case Constants.DEFAULT_COLLATION:// 按编号默认展示车辆
-                            ShowVehicles.getShowVehicles().showVehicle();
+                            AdminService.getAdminService().admShowVehicle();
                             break;
                         case Constants.VIEW_BILLS:// 查看总流水
-                            ViewMiscellaneous.getMiscellaneous().showMoney();
+                            AdminService.getAdminService().admShowMoney();
                             break;
                         default:
                             break;

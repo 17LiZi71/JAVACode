@@ -16,5 +16,4 @@ alter TABLE users add rentInformation1 Varchar(50);
 --@block
 ALTER TABLE users drop column ordNumber;
 --@block
-
-CREATE DATABASE rentdbs;
+SHOW create TABLE users;

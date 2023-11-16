@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.rentcal.bean.user.DefaultCustomer;
+import com.rentcal.bean.user.User;
 import com.rentcal.control.View;
 import com.rentcal.dao.Usertb;
 import com.rentcal.service.Interfation.UserRegistered;
@@ -11,7 +12,7 @@ import com.rentcal.service.Interfation.UserRegistered;
 public class Registered implements UserRegistered {
     // 注册方法，实现了UserRegistered接口，注册新用户
     @Override
-    public DefaultCustomer registered() throws SQLException {
+    public User registered() throws SQLException {
         Scanner sc = View.sc;
         DefaultCustomer newUser = null;
         while (newUser == null) {
@@ -31,12 +32,12 @@ public class Registered implements UserRegistered {
                 newUser.setPhone(sc.next());
                 if (Usertb.addUser(newUser)) {
                     System.out.println("新用户注册成功,已自动登录");
-                    return newUser;
+                    return Usertb.seekUser(name, pwd);
                 }
             }
         }
         // 注册完成返回用户类
-        return newUser;
+        return null;
     }
 
     public static Registered getRegistered() {
